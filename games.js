@@ -1,4 +1,6 @@
 // Image credits: Kickstarter
+// 'games' is a javascript object that represents a list of dictionaries, where each dictionary represents a game.
+// Each entry in the dictionary contains a key-value pair, where the key is a string representing the name of an attribute or property of the game, and the value is the corresponding data.
 const games = ` [
   {
     "name": "Heroes Of Mythic Americas",
