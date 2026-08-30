@@ -28,7 +28,14 @@ const gamesContainer = document.getElementById("games-container");
 // create a function that adds all data from the games array to the page
 function addGamesToPage(games) {
     // loop over each item in the data
+    // Technically, the loop with no body just iterates the values of "i", starting from "i=0" and ending at "i = games.length - 1".
+    // "i++" tells us what to do to "i" after each iteration. In this case, we increment "i" by 1.
+    // The body of the loop is where we create the game card and append it to the games container.
     for (let i = 0; i < games.length; i++) {
+        // Since "i" is the only variable that changes in the loop, we can use it to access each game in the array.
+        // When "i" equals '0', the following line sets the variable "game" to the value at index 0 of the games array. 
+        // When "i" equals '1', the following line sets the variable "game" to the value at index 1 of the games array.
+        // This continues until "i" equals 'games.length - 1', at which point the loop ends.
         const game = games[i];
         // create a new div element, which will become the game card
         const gameCard = document.createElement("div");
