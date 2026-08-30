@@ -5,9 +5,28 @@
 */
 
 // import the JSON data about the crowd funded games from the games.js file
+// This statement brings in the data from the file 'games.js' and assigns it to the variable GAMES_DATA.
+// The data is in JSON format: a string representation of an array of objects, where each object is a
+// dictionary containing information about a game. Each entry in the array is a dictionary. Each dictionary
+// is a game. Each game has the same number of properties, represented as key-value pairs. The keys are the
+// same for each game, but the values are different. The values are strings, numbers, or booleans.
 import GAMES_DATA from './games.js';
 
-// create a list of objects to store the data about the games using JSON.parse
+// create a list of objects to store the data about the games using JSON.parse to read the text that is stored
+// as the string variable GAMES_DATA and convert it into a JavaScript object.
+/* ACTUAL ENTRY IN GAMES_DATA. GAMES_DATA[0] is the first entry in the array of games. It is the dictionary depicted here:
+{
+    "name": "Heroes Of Mythic Americas",
+    "description": "An exciting 5e RPG supplement that heroically represents pre-Columbian American cultures and mythologies",
+    "pledged": 1572,
+    "goal": 10000,
+    "backers": 9,
+    "img": "./assets/heroes_of_mythic_americas.png"
+  }
+*/
+// JSON.parse(GAMES_DATA) converts the string representation of the full array of games. As a result, the properties of each game can be accessed using dot notation.
+// For example, GAMES_JSON[0] would give us the first game object in the array.
+// GAMES_JSON[0].name would give us the value at the key "name" in the first game object, which is "Heroes of Mythic Americas".
 const GAMES_JSON = JSON.parse(GAMES_DATA)
 
 // remove all child elements from a parent element in the DOM
@@ -22,7 +41,15 @@ function deleteChildElements(parent) {
  * Skills used: DOM manipulation, for loops, template literals, functions
 */
 
-// grab the element with the id games-container
+// From the DOM (Document Object Model) grab the element with the id games-container
+// The DOM is a tree-like structure that represents the HTML of a webpage. In this case, the DOM is the HTML of the
+// file 'index.html'. This line grabs the element with the id 'games-container' and assigns it to the variable gamesContainer.
+// The element with the id 'games-container' is a div element that is a child of the body element. It is the parent element of
+// the game cards that will be added to the page.
+// In simple terms, this line uses dot notation (i.e. literally uses a period/"dot" to append a method to an object) on the document object
+// to call the method 'getElementById', which is named after the thing that it does. It then passes the Id of the element in question, which is 'games-container'.
+// The method searches the DOM for id and returns the first element with that id.
+// The returned element is then assigned to the variable gamesContainer, which can be used to manipulate the element in the DOM.
 const gamesContainer = document.getElementById("games-container");
 
 // create a function that adds all data from the games array to the page
@@ -73,9 +100,15 @@ addGamesToPage(GAMES_JSON);
 */
 
 // grab the contributions card element
+// Same as getElementById above, but with a different id. This line grabs the element with the id 'num-contributions'
+// which in the HTML is the <p> element that is a child of the div with the id 'contributions-card'.
+// It is the element that will display the total number of contributions to all games on the page.
 const contributionsCard = document.getElementById("num-contributions");
 
 // use reduce() to count the number of total contributions by summing the backers
+// First, GAMES_JSON.reduce() takes a callback function as an argument. The callback function is:
+    // '(acc, game) => { return acc + game.backers; }' where 'acc' is the accumulator and 'game' is the current game
+    // object in the array. The callback function takes the accumulator and adds the number of backers for the current game
 const totalContributions = GAMES_JSON.reduce((acc, game) => {
     return acc + game.backers;
 }, 0);
@@ -164,7 +197,9 @@ allBtn.addEventListener("click", showAllGames);
 const descriptionContainer = document.getElementById("description-container");
 
 // use filter or reduce to count the number of unfunded games
-
+const unfundedGamesNum = GAMES_JSON.filter((game) => {
+        return game.pledged < game.goal;
+    }).length;
 
 // create a string that explains the number of unfunded games using the ternary operator
 
