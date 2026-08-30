@@ -58,7 +58,7 @@ function addGamesToPage(games) {
         `;
 
         // append the game to the games-container
-        gamesContainer.appendChild(gameCard);
+        gamesContainer.append(gameCard);
     }
 }
 // call the function we just defined using the correct variable
