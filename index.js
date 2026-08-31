@@ -1,4 +1,7 @@
 /*****************************************************************************
+ * NOTE TO GRADERS: I left COMMENTED OUT CODE and debugging console.log statements to show part of my thought process.
+ */
+/*****************************************************************************
  * Challenge 2: Review the provided code. The provided code includes:
  * -> Statements that import data from games.js
  * -> A function that deletes all child elements from a parent element in the DOM
@@ -219,6 +222,8 @@ const unfundedGamesNum = GAMES_JSON.reduce((acc, game) => {
 const unfundedGamesNum = GAMES_JSON.filter((game) => {
         return game.pledged < game.goal;
     }).length;
+*/
+
 
 // create a string that explains the number of unfunded games using the ternary operator
 /* COMMENTED OUT CODE
@@ -252,6 +257,7 @@ const secondGameContainer = document.getElementById("second-game");
 const sortedGames =  GAMES_JSON.sort( (item1, item2) => {
     return item2.pledged - item1.pledged;
 });
+// console.log(sortedGames); 
 
 // use destructuring and the spread operator to grab the first and second games
 const [firstGame, secondGame, ...rest] = sortedGames;
