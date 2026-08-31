@@ -196,15 +196,50 @@ allBtn.addEventListener("click", showAllGames);
 // grab the description container
 const descriptionContainer = document.getElementById("description-container");
 
-// use filter or reduce to count the number of unfunded games
+// Use reduce() to sum the number of unfunded games
+// First, dot notation is used to access the GAMES_JSON array, which is an array of game objects.
+// Then, reduce() is called on the array to iterate over each game object and accumulate (acc) the
+// number of unfunded games by checking if the pledged amount is less than the goal amount.
+// Reduce takes two arguments ((1) a callback function and (2) an initial value:
+    // Argument (1): a callback function that is called for each game object in the array. It also takes two arguments:
+        // Argument (a): 'acc' is the accumulator, which is the value that is returned by the callback function after each iteration
+        // Argument (b): 'game' is the current game object in the array.
+            // Another way to think of 'game' is as GAMES_JSON[i], which is passed into the callback function as the second argument,
+            // where 'i' is the index of the current game of the object in the array. The index starts at 0
+            // and increments by 1 after each iteration.
+    // Argument (2) an initial value for the accumulator, which is set to 0 in this case.
+    // IF: ('game.pledged < game.goal': True) -> return acc + 1
+    // ELSE: ('game.pledged < game.goal': False) -> return acc
+const unfundedGamesNum = GAMES_JSON.reduce((acc, game) => {
+    return game.pledged < game.goal ? acc + 1 : acc; 
+}, 0);
+/* COMMENTED OUT CODE
+  / use filter or reduce to count the number of unfunded games
+
 const unfundedGamesNum = GAMES_JSON.filter((game) => {
         return game.pledged < game.goal;
     }).length;
 
 // create a string that explains the number of unfunded games using the ternary operator
+/* COMMENTED OUT CODE
+const displayStr =
+    'The number of unfunded games is ' + unfundedGamesNum + ' out of ' + GAMES_JSON.length + ' total games.';
+*/
 
+// create a string that explains the number of unfunded games using the ternary operator
+// Use a template string to display how much money has been raised and for how many games, as well as
+// explaining how many games currently remain unfunded. Use the ternary operator (?) to make sure the 
+// statement is grammatically correct regardless of the number of unfunded games.
+const displayStr =
+    `A total of $${totalRaised.toLocaleString('en-US')} has been raised for ${totalGames} games.
+    Currently ${unfundedGamesNum} game${unfundedGamesNum === 1 ? '' : 's'} remain ${unfundedGamesNum === 1 ? 's' : ''}
+    unfunded. We need your help to fund these amazing games!`;
 
 // create a new DOM element containing the template string and append it to the description container
+const descriptionElement = document.createElement("p");
+descriptionElement.innerHTML = displayStr;
+
+descriptionContainer.appendChild(descriptionElement);
 
 /************************************************************************************
  * Challenge 7: Select & display the top 2 games
@@ -219,7 +254,17 @@ const sortedGames =  GAMES_JSON.sort( (item1, item2) => {
 });
 
 // use destructuring and the spread operator to grab the first and second games
+const [firstGame, secondGame, ...rest] = sortedGames;
+// console.log(firstGame);
+let { name, ...rest2 } = firstGame;
+let { name: name2, ...rest3 } = secondGame;
+console.log(name2);
 
 // create a new element to hold the name of the top pledge game, then append it to the correct element
-
+const topFundedName = document.createElement("p");
+topFundedName.innerHTML = name;
+firstGameContainer.appendChild(topFundedName);
 // do the same for the runner up item
+const secondFundedName = document.createElement("p");
+secondFundedName.innerHTML = name2;
+secondGameContainer.appendChild(secondFundedName);
