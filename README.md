@@ -42,7 +42,7 @@ To see part of my thought process, view commits [a8ace18](https://github.com/Dag
 
 ## Notes
 
-The toughest part was implementing the ternary operator. It required reading the suggested supplemental material but I have no complaints. I was challenging but not too challenging for this level.
+The toughest part was implementing the ternary operator. It required reading the suggested supplemental material but I have no complaints. It was challenging but not too challenging for this level.
 
 ## License
 
