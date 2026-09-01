@@ -27,19 +27,22 @@ The following **optional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented features:
-<!-- NOTE: This is not a working video walkthrough -->
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-<!-- Replace this with whatever GIF tool you used! -->
-GIF created with ... 
-<!-- Recommended tools:
-[Kap](https://getkap.co/) for macOS
-[ScreenToGif](https://www.screentogif.com/) for Windows
-[peek](https://github.com/phw/peek) for Linux. -->
+<img src='assets/sea-monster-walkthrough-readme.gif' title='Sea Monster Crowdfunding site walkthrough' width='340' alt='Silent screen recording panning down the Sea Monster Crowdfunding page past the stats totals, the top two funded games, and each of the three filter views.' />
+
+GIF created with OBS Studio and ffmpeg.
+
+**Full walkthrough with narration:** https://web102-prework-walkthrough.vercel.app
+
+## AI disclosure
+
+I solved Challenges 2 through 7 myself with no coding agent. `index.html` and the `games.js` data came from the CodePath starter repository; the work added to `index.js` and `style.css` is mine. I used AI only to produce the walkthrough video and the README GIF — an agent ran the OBS Studio capture and the ffmpeg edit, and the narration is an AI voice clone of my own voice reading a script the agent wrote. The code is mine. The video production is not.
+
+To see part of my thought process, view commits [a8ace18](https://github.com/Daguilar0123/web102_prework/commit/a8ace18) and [9d4bcc8](https://github.com/Daguilar0123/web102_prework/commit/9d4bcc8). I had commented out code from past attempts that failed. I also used `console.log("...")` debugging statements.
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+The toughest part was implementing the ternary operator. It required reading the suggested supplemental material but I have no complaints. I was challenging but not too challenging for this level.
 
 ## License
 
