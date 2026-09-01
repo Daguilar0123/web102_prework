@@ -222,7 +222,7 @@ const unfundedGamesNum = GAMES_JSON.reduce((acc, game) => {
 // statement is grammatically correct regardless of the number of unfunded games.
 const displayStr =
     `A total of $${totalRaised.toLocaleString('en-US')} has been raised for ${totalGames} games.
-    Currently ${unfundedGamesNum} game${unfundedGamesNum === 1 ? '' : 's'} remain ${unfundedGamesNum === 1 ? 's' : ''}
+    Currently ${unfundedGamesNum} game${unfundedGamesNum === 1 ? '' : 's'} remain${unfundedGamesNum === 1 ? 's' : ''}
     unfunded. We need your help to fund these amazing games!`;
 
 // create a new DOM element containing the template string and append it to the description container
