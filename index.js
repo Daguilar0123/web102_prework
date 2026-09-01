@@ -1,7 +1,4 @@
-/*****************************************************************************
- * NOTE TO GRADERS: I left COMMENTED OUT CODE and debugging console.log statements to show part of my thought process.
- */
-/*****************************************************************************
+/**
  * Challenge 2: Review the provided code. The provided code includes:
  * -> Statements that import data from games.js
  * -> A function that deletes all child elements from a parent element in the DOM
